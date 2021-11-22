@@ -3260,7 +3260,9 @@ Text.prototype = {
             editor.menus.changeActive();
         }
         // 按键后保存
-        $textElem.on('keyup', saveRange);
+        // $textElem.on('keyup', saveRange); //orogin code
+        $textElem.on('keydown', saveRange); //new line to fix paste error
+
         $textElem.on('mousedown', function (e) {
             // mousedown 状态下，鼠标滑动到编辑区域外面，也需要保存选区
             $textElem.on('mouseleave', saveRange);
